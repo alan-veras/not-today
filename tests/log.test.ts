@@ -64,8 +64,10 @@ describe('notas', () => {
 	it('reads bullet lines', () => {
 		expect(itensDaNota('texto\n- A\n* B\n')).toEqual(['A', 'B']);
 	});
-	it('strips frontmatter and the first heading', () => {
+	it('strips frontmatter, the first heading and the authorship callout', () => {
 		expect(limpaNota('---\ntags: x\n---\n# Titulo\n\nbody\n')).toBe('body');
+		const nota = '---\ntags: x\n---\n# Titulo\n\n> [!info] Nota gerada por IA\n> conteudo\n\no verso.\n';
+		expect(limpaNota(nota)).toBe('o verso.');
 	});
 	it('falls back when the note list is empty', () => {
 		expect(comReserva([], [1, 2])).toEqual([1, 2]);
