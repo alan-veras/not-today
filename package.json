@@ -1,0 +1,14 @@
+{
+	"name": "dominio",
+	"version": "0.2.0",
+	"description": "Obsidian plugin: a panic button for urges, vice countermeasures and speech practice.",
+	"main": "main.js",
+	"type": "module",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"deploy": "npm run build && node scripts/deploy.mjs",
+		"test": "TZ=America/Fortaleza vitest run --reporter=dot"
+	},
+	"license": "0-BSD"
+}
