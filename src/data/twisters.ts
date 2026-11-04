@@ -23,11 +23,11 @@ export const TWISTERS: string[] = [
 ];
 
 /** Shuffled deck (Fisher-Yates): everything shows up before anything repeats. */
-export function baralho<T = string>(lista: T[] = TWISTERS as unknown as T[], rnd: () => number = Math.random): T[] {
-	const a = [...lista];
-	for (let i = a.length - 1; i > 0; i--) {
+export function shuffleDeck<T = string>(list: T[] = TWISTERS as unknown as T[], rnd: () => number = Math.random): T[] {
+	const deck = [...list];
+	for (let i = deck.length - 1; i > 0; i--) {
 		const j = Math.floor(rnd() * (i + 1));
-		[a[i], a[j]] = [a[j]!, a[i]!];
+		[deck[i], deck[j]] = [deck[j]!, deck[i]!];
 	}
-	return a;
+	return deck;
 }

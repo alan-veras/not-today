@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Grava a demo do Domínio sem tocar no seu Obsidian: abre uma SEGUNDA instância
+# Grava a demo do Not Today sem tocar no seu Obsidian: abre uma SEGUNDA instância
 # (perfil próprio, forçada em X11) no vault demo, filma só a janela dela e corta
 # um GIF para o README. Rode quando a máquina estiver livre.
 #
@@ -9,7 +9,7 @@ set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 DEMO="$REPO/demo-vault"
 OUT="$REPO/demo"
-PROFILE="/tmp/dominio-obsidian-profile"
+PROFILE="/tmp/not-today-obsidian-profile"
 ASAR="/usr/lib/obsidian/app.asar"
 ELECTRON="$(command -v electron || command -v electron43 || true)"
 [ -n "$ELECTRON" ] || { echo "Electron do Obsidian não encontrado (ajuste ASAR/ELECTRON no topo do script)"; exit 1; }
@@ -21,13 +21,13 @@ cp "$REPO/main.js" "$REPO/manifest.json" "$REPO/styles.css" "$DEMO/.obsidian/plu
 [ -f "$DEMO/.obsidian/plugins/dominio/data.json" ] || cat > "$DEMO/.obsidian/plugins/dominio/data.json" <<'EOF'
 {
 	"dailyFolder": "Daily Notes",
-	"secao": "## Domínio",
+	"section": "## Domínio",
 	"twistersNote": "",
 	"activitiesNote": "",
 	"encouragementNote": "Encouragement.md",
 	"fundingUrl": "",
-	"escolhas": {
-		"selecionados": ["social-media", "procrastination", "nail-biting"],
+	"vices": {
+		"selected": ["social-media", "procrastination", "nail-biting"],
 		"custom": [],
 		"overrides": { "social-media": { "minutes": 1 }, "procrastination": { "minutes": 1 } }
 	}
@@ -42,7 +42,7 @@ export DISPLAY="${DISPLAY:-:0}"
 
 WIN=""
 for i in $(seq 1 30); do
-	WIN="$(xdotool search --name "dominio-demo-vault" 2>/dev/null | tail -1)"
+	WIN="$(xdotool search --name "demo-vault" 2>/dev/null | tail -1)"
 	[ -n "$WIN" ] && break
 	[ "$i" = 12 ] && echo "Se a janela abriu pedindo confiança, clique 'Trust author and enable plugins'."
 	sleep 2
@@ -55,7 +55,8 @@ echo
 echo "Gravando a janela ${WIDTH}x${HEIGHT}+${X}+${Y}. Ctrl+C para parar e gerar o GIF."
 echo
 echo "Roteiro (~90s):"
-echo "  1. Ctrl+Alt+F abre o menu de pânico; deixe o menu em cena por 5s"
+echo "  1. clique no ícone de escudo na barra lateral para abrir o menu de pânico; deixe o menu em cena por 5s"
+echo "     (se quiser o atalho, ligue um hotkey ao comando 'Open the panic button' antes de gravar)"
 echo "  2. clique em Social media e espere o cronômetro de 1 minuto terminar (a onda passa)"
 echo "  3. Back, Boredom, Start, espere ~15s, I am done (mostra o tempo real no log)"
 echo "  4. Back, Tongue twisters, Next duas vezes, I am done"

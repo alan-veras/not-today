@@ -35,25 +35,25 @@ export const VICES: Vice[] = [
 	{ id: 'self-criticism', name: 'Self-criticism', counter: 'Write the harsh thought down, then answer it out loud the way you would answer a friend.', minutes: 3, icon: 'heart-crack' },
 ];
 
-export interface Escolhas {
+export interface ViceSelection {
 	/** Ids of built-in vices the user is fighting. */
-	selecionados: string[];
+	selected: string[];
 	/** Vices the user created. */
 	custom: Vice[];
 	/** Edits the user made to built-in vices. */
 	overrides: Record<string, Partial<Pick<Vice, 'name' | 'counter' | 'minutes'>>>;
 }
 
-export const ESCOLHAS_VAZIAS: Escolhas = { selecionados: [], custom: [], overrides: {} };
+export const EMPTY_SELECTION: ViceSelection = { selected: [], custom: [], overrides: {} };
 
 /** The active fight list, in a stable order: built-ins first (library order), then customs. */
-export function vicesAtivos(e: Escolhas): Vice[] {
+export function activeVices(selection: ViceSelection): Vice[] {
 	const built = VICES
-		.filter((v) => e.selecionados.includes(v.id))
-		.map((v) => ({ ...v, ...(e.overrides[v.id] ?? {}) }));
-	return [...built, ...e.custom.filter((v) => v.minutes > 0 && v.name.trim() && v.counter.trim())];
+		.filter((v) => selection.selected.includes(v.id))
+		.map((v) => ({ ...v, ...(selection.overrides[v.id] ?? {}) }));
+	return [...built, ...selection.custom.filter((v) => v.minutes > 0 && v.name.trim() && v.counter.trim())];
 }
 
-export function vicePorId(e: Escolhas, id: string): Vice | undefined {
-	return vicesAtivos(e).find((v) => v.id === id);
+export function viceById(selection: ViceSelection, id: string): Vice | undefined {
+	return activeVices(selection).find((v) => v.id === id);
 }

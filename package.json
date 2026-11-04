@@ -7,8 +7,16 @@
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"lint": "eslint src/",
 		"deploy": "npm run build && node scripts/deploy.mjs",
 		"test": "TZ=America/Fortaleza vitest run --reporter=dot"
 	},
-	"license": "0-BSD"
+	"license": "0-BSD",
+	"devDependencies": {
+		"esbuild": "^0.28.2",
+		"eslint": "^9.39.5",
+		"eslint-plugin-obsidianmd": "^0.4.2",
+		"obsidian": "^1.14.4",
+		"vitest": "^5.1.0"
+	}
 }

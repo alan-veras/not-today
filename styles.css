@@ -1,43 +1,42 @@
-/* Domínio: no padrão do painel do Lembro */
-.dominio-modal { width: min(520px, 94vw); }
-.dominio-head { display: flex; align-items: center; gap: 6px; margin-bottom: 14px; min-height: 28px; }
-.dominio-title { font-size: var(--font-ui-medium); font-weight: 600; }
-.dominio-back { padding: 4px; }
-.dominio-body { display: flex; flex-direction: column; gap: 12px; }
-.dominio-lead { font-size: 1.1em; font-weight: 500; }
-.dominio-muted { color: var(--text-muted); }
-.dominio-small { font-size: var(--font-ui-smaller); }
-.dominio-center { text-align: center; }
-.dominio-label { font-size: var(--font-ui-smaller); color: var(--text-muted); margin-bottom: -6px; }
-.dominio-input { width: 100%; }
+/* Not Today: in the Lembro panel pattern */
+.not-today-modal { width: min(520px, 94vw); }
+.not-today-head { display: flex; align-items: center; gap: 6px; margin-bottom: 14px; min-height: 28px; }
+.not-today-title { font-size: var(--font-ui-medium); font-weight: 600; }
+.not-today-back { padding: 4px; }
+.not-today-body { display: flex; flex-direction: column; gap: 12px; }
+.not-today-lead { font-size: 1.1em; font-weight: 500; }
+.not-today-muted { color: var(--text-muted); }
+.not-today-small { font-size: var(--font-ui-smaller); }
+.not-today-center { text-align: center; }
+.not-today-label { font-size: var(--font-ui-smaller); color: var(--text-muted); margin-bottom: -6px; }
+.not-today-input { width: 100%; }
 
-.dominio-list { border-top: 1px solid var(--background-modifier-border); }
-.dominio-row { display: flex; align-items: center; gap: 12px; padding: 12px 6px; border-bottom: 1px solid var(--background-modifier-border); cursor: pointer; border-radius: 6px; }
-.dominio-row:hover, .dominio-row:focus-visible { background: var(--background-modifier-hover); outline: none; }
-.dominio-row-icon { display: flex; color: var(--interactive-accent); }
-.dominio-row-icon svg { width: 20px; height: 20px; }
-.dominio-row-t { flex: 1; min-width: 0; }
-.dominio-row-title { font-weight: 500; }
-.dominio-kbd { color: var(--text-faint); font-size: var(--font-ui-smaller); }
-.dominio-check { accent-color: var(--interactive-accent); width: 16px; height: 16px; flex-shrink: 0; margin: 0; }
+.not-today-list { border-top: 1px solid var(--background-modifier-border); }
+.not-today-row { display: flex; align-items: center; gap: 12px; padding: 12px 6px; border-bottom: 1px solid var(--background-modifier-border); cursor: pointer; border-radius: 6px; }
+.not-today-row:hover, .not-today-row:focus-visible { background: var(--background-modifier-hover); outline: none; }
+.not-today-row-icon { display: flex; color: var(--interactive-accent); }
+.not-today-row-icon svg { width: 20px; height: 20px; }
+.not-today-row-t { flex: 1; min-width: 0; }
+.not-today-row-title { font-weight: 500; }
+.not-today-kbd { color: var(--text-faint); font-size: var(--font-ui-smaller); }
+.not-today-check { pointer-events: none; accent-color: var(--interactive-accent); width: 16px; height: 16px; flex-shrink: 0; margin: 0; }
 
-.dominio-clock { text-align: center; padding: 6px 0 4px; }
-.dominio-big { font-size: 44px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
-.dominio-bar { height: 3px; max-width: 240px; margin: 12px auto 0; background: var(--background-modifier-border); border-radius: 2px; overflow: hidden; }
-.dominio-bar i { display: block; height: 100%; width: 100%; background: var(--interactive-accent); transition: width 0.25s linear; }
+.not-today-clock { text-align: center; padding: 6px 0 4px; }
+.not-today-big { font-size: 44px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.not-today-bar { height: 3px; max-width: 240px; margin: 12px auto 0; background: var(--background-modifier-border); border-radius: 2px; overflow: hidden; }
+.not-today-bar i { display: block; height: 100%; width: 100%; background: var(--interactive-accent); transition: width 0.25s linear; }
 
-.dominio-card { background: var(--background-secondary); border: 1px solid var(--background-modifier-border); border-radius: 12px; padding: 14px 16px; }
-.dominio-tag { font-size: var(--font-ui-smaller); color: var(--text-muted); margin-bottom: 4px; }
-.dominio-card-title { font-size: 1.15em; font-weight: 600; }
-.dominio-frase { font-weight: 500; line-height: 1.5; }
-.dominio-letra { white-space: pre-wrap; margin-top: 8px; line-height: 1.6; max-height: 40vh; overflow: auto; }
-.dominio-letra:empty { display: none; }
-.dominio-verse { font-size: var(--font-ui-small); color: var(--text-muted); font-style: italic; border-left: 2px solid var(--interactive-accent); padding-left: 10px; }
-.dominio-steps { margin: 0; padding-left: 20px; color: var(--text-muted); font-size: var(--font-ui-small); }
-.dominio-steps li { margin: 3px 0; }
+.not-today-card { background: var(--background-secondary); border: 1px solid var(--background-modifier-border); border-radius: 12px; padding: 14px 16px; }
+.not-today-tag { font-size: var(--font-ui-smaller); color: var(--text-muted); margin-bottom: 4px; }
+.not-today-card-title { font-size: 1.15em; font-weight: 600; }
+.not-today-phrase { font-weight: 500; line-height: 1.5; }
+.not-today-letra { white-space: pre-wrap; margin-top: 8px; line-height: 1.6; max-height: 40vh; overflow: auto; }
+.not-today-letra:empty { display: none; }
+.not-today-steps { margin: 0; padding-left: 20px; color: var(--text-muted); font-size: var(--font-ui-small); }
+.not-today-steps li { margin: 3px 0; }
 
-.dominio-buttons { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
-.dominio-end { text-align: center; padding: 16px 0 4px; display: flex; flex-direction: column; gap: 6px; }
-.dominio-end-icon { display: flex; justify-content: center; color: var(--interactive-accent); margin-bottom: 6px; }
-.dominio-end-icon svg { width: 40px; height: 40px; }
-.dominio-end .dominio-buttons { justify-content: center; margin-top: 14px; }
+.not-today-buttons { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
+.not-today-end { text-align: center; padding: 16px 0 4px; display: flex; flex-direction: column; gap: 6px; }
+.not-today-end-icon { display: flex; justify-content: center; color: var(--interactive-accent); margin-bottom: 6px; }
+.not-today-end-icon svg { width: 40px; height: 40px; }
+.not-today-end .not-today-buttons { justify-content: center; margin-top: 14px; }
