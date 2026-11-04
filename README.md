@@ -44,7 +44,7 @@ Everything personal lives in your vault, not in the plugin:
 
 ## Install
 
-Get it from Obsidian's Community plugins (search for **Not Today**), or manually: download `main.js`, `manifest.json` and `styles.css` from the [latest release](../../releases) into `<vault>/.obsidian/plugins/dominio/`.
+Get it from Obsidian's Community plugins (search for **Not Today**), or manually: download `main.js`, `manifest.json` and `styles.css` from the [latest release](../../releases) into `<vault>/.obsidian/plugins/not-today/`.
 
 ## License
 

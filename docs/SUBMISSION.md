@@ -24,7 +24,7 @@ Fork de `obsidianmd/obsidian-releases`, editar `community-plugins.json` (ordem a
 
 ```json
 {
-	"id": "dominio",
+	"id": "not-today",
 	"name": "Not Today",
 	"author": "Alan Veras",
 	"description": "A panic button for urges: surf the wave, fight any vice with a countermeasure, and log the fight to your daily note.",

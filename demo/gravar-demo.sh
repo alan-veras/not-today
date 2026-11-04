@@ -15,10 +15,10 @@ ELECTRON="$(command -v electron || command -v electron43 || true)"
 [ -n "$ELECTRON" ] || { echo "Electron do Obsidian não encontrado (ajuste ASAR/ELECTRON no topo do script)"; exit 1; }
 mkdir -p "$OUT"
 
-mkdir -p "$DEMO/.obsidian/plugins/dominio" "$DEMO/Daily Notes"
-cp "$REPO/main.js" "$REPO/manifest.json" "$REPO/styles.css" "$DEMO/.obsidian/plugins/dominio/"
-[ -f "$DEMO/.obsidian/community-plugins.json" ] || printf '["dominio"]\n' > "$DEMO/.obsidian/community-plugins.json"
-[ -f "$DEMO/.obsidian/plugins/dominio/data.json" ] || cat > "$DEMO/.obsidian/plugins/dominio/data.json" <<'EOF'
+mkdir -p "$DEMO/.obsidian/plugins/not-today" "$DEMO/Daily Notes"
+cp "$REPO/main.js" "$REPO/manifest.json" "$REPO/styles.css" "$DEMO/.obsidian/plugins/not-today/"
+[ -f "$DEMO/.obsidian/community-plugins.json" ] || printf '["not-today"]\n' > "$DEMO/.obsidian/community-plugins.json"
+[ -f "$DEMO/.obsidian/plugins/not-today/data.json" ] || cat > "$DEMO/.obsidian/plugins/not-today/data.json" <<'EOF'
 {
 	"dailyFolder": "Daily Notes",
 	"section": "## Domínio",

@@ -1,7 +1,7 @@
 {
-	"id": "dominio",
+	"id": "not-today",
 	"name": "Not Today",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"minAppVersion": "1.13.0",
 	"description": "A panic button for urges: surf the wave, fight any vice with a countermeasure, and log the fight to your daily note.",
 	"author": "Alan Veras",
