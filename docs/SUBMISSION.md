@@ -1,24 +1,14 @@
 # Submissão do Not Today à loja do Obsidian
 
-Passo a passo do que falta, tudo que depende de conta sua. O código e a infra estão prontos: lint oficial zerado, 28 testes, build limpo, `versions.json`, LICENSE 0-BSD e workflow de release.
+Passo a passo. O código e a infra estão prontos: lint oficial zerado, 28 testes, build limpo, `versions.json`, LICENSE 0-BSD e workflow de release. **Repo: https://github.com/alan-veras/not-today (público). Passos 1 e 2 já feitos (04/11/2026): main pushado e release 0.2.0 publicada com main.js, manifest.json e styles.css.**
 
-## 1. Repo público no GitHub
+## 1. Repo público no GitHub ✅ (04/11/2026)
 
-```bash
-cd "/home/alanv/Trabalhos/Freelancer/Obsidian Plugins/dominio"
-gh repo create not-today --public --source=. --push
-```
+`gh repo create not-today --public --source=. --push` — feito; remote `origin` apontando para `alan-veras/not-today`.
 
-## 2. Release 0.2.0
+## 2. Release 0.2.0 ✅ (04/11/2026)
 
-O workflow `.github/workflows/releases.yml` roda a cada tag e anexa `main.js`, `manifest.json` e `styles.css` à release:
-
-```bash
-git tag 0.2.0
-git push origin 0.2.0
-```
-
-Conferir na aba Actions que o release saiu com os três arquivos.
+Tag `0.2.0` pushada; o workflow rodou e a release tem os três assets (conferir em https://github.com/alan-veras/not-today/releases). Versões futuras: `npm version patch` (ou minor), `git push --tags`.
 
 ## 3. Demo
 
@@ -38,11 +28,11 @@ Fork de `obsidianmd/obsidian-releases`, editar `community-plugins.json` (ordem a
 	"name": "Not Today",
 	"author": "Alan Veras",
 	"description": "A panic button for urges: surf the wave, fight any vice with a countermeasure, and log the fight to your daily note.",
-	"repo": "SEU-USUARIO/not-today"
+	"repo": "alan-veras/not-today"
 }
 ```
 
-Ajustar `repo` para o caminho real do passo 1. A descrição já está em conformidade (113 caracteres, termina com ponto, sem emoji). Revisar contra as guidelines antes de abrir: https://docs.obsidian.md/plugins/releasing/plugin-guidelines
+A descrição já está em conformidade (113 caracteres, termina com ponto, sem emoji). Revisar contra as guidelines antes de abrir: https://docs.obsidian.md/plugins/releasing/plugin-guidelines
 
 ## Estado de conformidade
 
