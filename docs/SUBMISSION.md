@@ -6,7 +6,7 @@ Passo a passo. O código e a infra estão prontos: lint oficial zerado, 28 teste
 
 `gh repo create not-today --public --source=. --push` — feito; remote `origin` apontando para `alan-veras/not-today`.
 
-## 2. Releases ✅ (0.2.0 em 04/11; **0.3.0** com o id not-today, release atual)
+## 2. Releases ✅ (0.2.0 em 04/11; **0.3.0** com o id not-today, release atual, com o default da seção em inglês)
 
 Tag `0.2.0` pushada; o workflow rodou e a release tem os três assets (conferir em https://github.com/alan-veras/not-today/releases). Versões futuras: `npm version patch` (ou minor), `git push --tags`.
 

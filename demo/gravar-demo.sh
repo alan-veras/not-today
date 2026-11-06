@@ -21,13 +21,13 @@ cp "$REPO/main.js" "$REPO/manifest.json" "$REPO/styles.css" "$DEMO/.obsidian/plu
 [ -f "$DEMO/.obsidian/plugins/not-today/data.json" ] || cat > "$DEMO/.obsidian/plugins/not-today/data.json" <<'EOF'
 {
 	"dailyFolder": "Daily Notes",
-	"section": "## Domínio",
+	"section": "## Not Today",
 	"twistersNote": "",
 	"activitiesNote": "",
 	"encouragementNote": "Encouragement.md",
 	"fundingUrl": "",
 	"vices": {
-		"selected": ["social-media", "procrastination", "nail-biting"],
+		"selected": [],
 		"custom": [],
 		"overrides": { "social-media": { "minutes": 1 }, "procrastination": { "minutes": 1 } }
 	}

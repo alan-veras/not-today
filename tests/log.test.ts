@@ -8,14 +8,14 @@ const when = new Date(2026, 10, 2, 9, 5);
 describe('appendSection', () => {
 	it('creates the section before the Registro heading', () => {
 		const out = appendSection('## Oração\n\nx\n\n## Registro do Vault\n\ny\n', '- a');
-		expect(out).toBe('## Oração\n\nx\n\n## Domínio\n\n- a\n\n## Registro do Vault\n\ny\n');
+		expect(out).toBe('## Oração\n\nx\n\n## Not Today\n\n- a\n\n## Registro do Vault\n\ny\n');
 	});
 	it('creates the section at the end without Registro', () => {
-		expect(appendSection('## Oração\n\nx\n', '- a')).toBe('## Oração\n\nx\n\n## Domínio\n\n- a\n');
+		expect(appendSection('## Oração\n\nx\n', '- a')).toBe('## Oração\n\nx\n\n## Not Today\n\n- a\n');
 	});
 	it('appends inside an existing section, touching nothing else', () => {
-		const out = appendSection('## Domínio\n\n- a\n\n## Outra\n\nz\n', '- b');
-		expect(out).toBe('## Domínio\n\n- a\n- b\n\n## Outra\n\nz\n');
+		const out = appendSection('## Not Today\n\n- a\n\n## Outra\n\nz\n', '- b');
+		expect(out).toBe('## Not Today\n\n- a\n- b\n\n## Outra\n\nz\n');
 	});
 	it('tolerates trailing spaces and ignores headings inside code blocks', () => {
 		const note = '# Day\n\n```md\n## Registro do Vault\n```\n\ntext\n\n## Registro do Vault \n\n- y\n';
@@ -28,7 +28,7 @@ describe('appendSection', () => {
 		expect(out).toBe('## Luta\n\n- a\n\n## Fim\n');
 	});
 	it('exposes the default section constant', () => {
-		expect(DEFAULT_SECTION).toBe('## Domínio');
+		expect(DEFAULT_SECTION).toBe('## Not Today');
 	});
 });
 

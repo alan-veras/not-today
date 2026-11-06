@@ -1,6 +1,6 @@
 {
 	"name": "not-today",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Obsidian plugin: a panic button for urges, vice countermeasures and speech practice.",
 	"main": "main.js",
 	"type": "module",

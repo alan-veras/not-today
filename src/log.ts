@@ -1,4 +1,4 @@
-export const DEFAULT_SECTION = '## Domínio';
+export const DEFAULT_SECTION = '## Not Today';
 const REGISTRO_RE = /^## Registro do Vault\b/;
 const FENCE_RE = /^[ \t]*(```|~~~)/;
 

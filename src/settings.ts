@@ -19,7 +19,7 @@ export interface Settings {
 
 export const DEFAULTS: Settings = {
 	dailyFolder: '',
-	section: '## Domínio',
+	section: '## Not Today',
 	twistersNote: '',
 	activitiesNote: '',
 	encouragementNote: '',
@@ -89,7 +89,7 @@ export class NotTodaySettingTab extends PluginSettingTab {
 			] },
 			{ type: 'group', heading: 'Daily note', items: [
 				this.textRow('Daily notes folder', 'Empty follows the core Daily notes plugin. Supports {{YYYY}}.', 'dailyFolder', 'Journal/Daily Notes'),
-				this.textRow('Section heading', 'Where the lines are written in the daily note.', 'section', '## Domínio'),
+				this.textRow('Section heading', 'Where the lines are written in the daily note.', 'section', '## Not Today'),
 			] },
 		];
 	}

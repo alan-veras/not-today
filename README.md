@@ -11,7 +11,7 @@ A panic button for the moment an urge hits. Tap the shield icon, pick your fight
 1. **On first open**, tick the vices you are fighting (social media, nail biting, junk food, porn, smoking, alcohol, gaming, impulse buying, procrastination, binge watching, anger, self-criticism). You can add your own custom vices with your own countermeasures in the settings.
 2. **When the urge hits**, open the panic button (bind any hotkey you like to the "Open the panic button" command, or tap the shield icon in the ribbon) and tap the vice. The fight starts immediately.
 3. **Surf the wave.** A timer runs the urge-surf length while the screen shows your countermeasure and, if you set one, an encouragement note of your own. You do not have to fight the feeling, only stay until it passes.
-4. **The outcome is logged** as one honest line in today's daily note, under a `## Domínio` heading by default (configurable), including how long you actually lasted. Gave in after two minutes? It says two minutes. No guilt, no shame: the next wave starts now.
+4. **The outcome is logged** as one honest line in today's daily note, under a `## Not Today` heading by default (configurable), including how long you actually lasted. Gave in after two minutes? It says two minutes. No guilt, no shame: the next wave starts now.
 
 ## The tools
 
@@ -40,7 +40,7 @@ Everything personal lives in your vault, not in the plugin:
 - **Countermeasures** can be rewritten in your own words, per vice, in the settings.
 - **Encouragement note**: any note of yours (a verse, a sentence) shown during every fight.
 - **Boredom list** and **tongue twisters** can come from your own notes.
-- **Daily section**: lines are written under a `## Domínio` heading in today's daily note.
+- **Daily section**: lines are written under a `## Not Today` heading in today's daily note.
 
 ## Install
 
