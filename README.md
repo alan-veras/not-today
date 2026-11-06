@@ -20,7 +20,6 @@ A panic button for the moment an urge hits. Tap the shield icon, pick your fight
 | **Vice fight** | Urge surf with your countermeasure on screen; log with the real duration |
 | **Nail biting** | Habit reversal: notice the trigger, then one minute of closed fists |
 | **Boredom** | Rolls one concrete thing to do instead of the screen (20 options, or your own list) |
-| **Tongue twisters** | 5 minutes of slow, loud speech practice with rotating twisters |
 
 ## Why it works
 
@@ -39,7 +38,7 @@ Everything personal lives in your vault, not in the plugin:
 
 - **Countermeasures** can be rewritten in your own words, per vice, in the settings.
 - **Encouragement note**: any note of yours (a verse, a sentence) shown during every fight.
-- **Boredom list** and **tongue twisters** can come from your own notes.
+- **Boredom list** can come from your own note.
 - **Daily section**: lines are written under a `## Not Today` heading in today's daily note.
 
 ## Install

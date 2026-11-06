@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { appendSection, DEFAULT_SECTION, durationLabel, boredomLine, fightLine, nailsLine, twistersLine } from '../src/log';
-import { shuffleDeck, TWISTERS } from '../src/data/twisters';
-import { bulletsFromNote, stripNoteChrome, withFallback } from '../src/data/notas';
+import { appendSection, DEFAULT_SECTION, durationLabel, boredomLine, fightLine, nailsLine } from '../src/log';
+import { stripNoteChrome, withFallback } from '../src/data/notas';
 
 const when = new Date(2026, 10, 2, 9, 5);
 
@@ -49,24 +48,11 @@ describe('lines', () => {
 	it('uses natural language, no emoji', () => {
 		expect(nailsLine(when, 'boredom at the computer')).toContain('The trigger was boredom at the computer.');
 		expect(nailsLine(when, '')).not.toContain('trigger');
-		expect(twistersLine(when, 300, 6)).toBe('- 09h05: Practiced tongue twisters for 5 minutes: 6 twisters out loud.');
 		expect(boredomLine(when, '20 push-ups', 300)).toBe('- 09h05: Felt bored and, instead of the screen, did this for 5 minutes: 20 push-ups.');
 	});
 });
 
-describe('shuffleDeck', () => {
-	it('brings every tongue twister, without repeating', () => {
-		const deck = shuffleDeck();
-		expect(deck).toHaveLength(TWISTERS.length);
-		expect(new Set(deck).size).toBe(TWISTERS.length);
-		expect(TWISTERS.length).toBeGreaterThanOrEqual(15);
-	});
-});
-
 describe('note helpers', () => {
-	it('reads bullet lines', () => {
-		expect(bulletsFromNote('text\n- A\n* B\n')).toEqual(['A', 'B']);
-	});
 	it('strips frontmatter, the first heading and the authorship callout', () => {
 		expect(stripNoteChrome('---\ntags: x\n---\n# Title\n\nbody\n')).toBe('body');
 		const note = '---\ntags: x\n---\n# Title\n\n> [!info] Nota gerada por IA\n> content\n\nthe verse.\n';

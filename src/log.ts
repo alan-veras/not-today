@@ -27,10 +27,6 @@ export function nailsLine(when: Date, trigger: string): string {
 	return `- ${hhmm(when)}: Wanted to bite my nails.${t} Closed my fists for 1 minute.`;
 }
 
-export function twistersLine(when: Date, seconds: number, count: number): string {
-	return `- ${hhmm(when)}: Practiced tongue twisters for ${durationLabel(seconds)}: ${count} twisters out loud.`;
-}
-
 export function boredomLine(when: Date, activity: string, seconds: number): string {
 	const a = `${activity.charAt(0).toLowerCase()}${activity.slice(1)}`;
 	return `- ${hhmm(when)}: Felt bored and, instead of the screen, did this for ${durationLabel(seconds)}: ${a}.`;

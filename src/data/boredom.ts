@@ -32,7 +32,6 @@ export function builtinActivities(): Activity[] {
 		{ title: 'Draw what is in front of you', how: 'Paper and pen, 5 minutes, no erasing. It does not need to be good.' },
 
 		// Mouth and mind
-		{ title: 'Practice tongue twisters', how: 'Slow, exaggerating the mouth, and record yourself. It is the Tongue twisters option.' },
 		{ title: 'Narrate what you are doing', how: 'Out loud, like a narrator, describe the room and what you will do next.' },
 		{ title: 'One 5-minute task', how: 'The smallest thing you are postponing today. Sometimes boredom is a task running away.' },
 		{ title: 'Write what you are feeling', how: 'Five lines, unedited. Putting it into words already takes strength away from the feeling.' },

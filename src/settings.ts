@@ -7,8 +7,6 @@ export interface Settings {
 	dailyFolder: string;
 	/** Heading of the section where the log lines are written. */
 	section: string;
-	/** Note with one tongue twister per bullet. Empty = built-in list. */
-	twistersNote: string;
 	/** Note with boredom activities, one per bullet, "- Title :: how to do it". Empty = built-in list. */
 	activitiesNote: string;
 	/** Note shown as a card during the fight (a verse, a sentence, whatever keeps you steady). */
@@ -20,7 +18,6 @@ export interface Settings {
 export const DEFAULTS: Settings = {
 	dailyFolder: '',
 	section: '## Not Today',
-	twistersNote: '',
 	activitiesNote: '',
 	encouragementNote: '',
 	fundingUrl: '',
@@ -32,7 +29,7 @@ export function migrateSettings(raw: unknown): Settings {
 	const settings: Settings = structuredClone(DEFAULTS);
 	if (!raw || typeof raw !== 'object') return settings;
 	const r = raw as Record<string, unknown>;
-	for (const key of ['dailyFolder', 'twistersNote', 'activitiesNote', 'encouragementNote', 'fundingUrl'] as const) {
+	for (const key of ['dailyFolder', 'activitiesNote', 'encouragementNote', 'fundingUrl'] as const) {
 		if (typeof r[key] === 'string') settings[key] = r[key] as string;
 	}
 	if (typeof r.section === 'string' && r.section) settings.section = r.section;
@@ -83,7 +80,6 @@ export class NotTodaySettingTab extends PluginSettingTab {
 				} },
 			] },
 			{ type: 'group', heading: 'Your content', items: [
-				this.textRow('Tongue twisters note', 'One twister per bullet. Empty uses the built-in list.', 'twistersNote', 'path/to/note.md'),
 				this.textRow('Boredom activities note', 'One per bullet: title on the left, how on the right, separated by two colons.', 'activitiesNote', 'path/to/note.md'),
 				this.textRow('Encouragement note', 'Shown during every fight: a verse, a sentence, whatever keeps you steady.', 'encouragementNote', 'path/to/note.md'),
 			] },
@@ -169,7 +165,7 @@ export class NotTodaySettingTab extends PluginSettingTab {
 		} };
 	}
 
-	private textRow(name: string, desc: string, key: 'dailyFolder' | 'section' | 'twistersNote' | 'activitiesNote' | 'encouragementNote', placeholder: string): SettingDefinition {
+	private textRow(name: string, desc: string, key: 'dailyFolder' | 'section' | 'activitiesNote' | 'encouragementNote', placeholder: string): SettingDefinition {
 		return { name, desc, render: (setting) => {
 			setting.addText((t) => {
 				t.setPlaceholder(placeholder);

@@ -1,14 +1,11 @@
 import { App, KeymapEventHandler, Modal, Notice, setIcon } from 'obsidian';
 import type NotTodayPlugin from '../main';
 import { activitiesFromNote, builtinActivities, drawOne } from '../data/boredom';
-import { shuffleDeck, TWISTERS } from '../data/twisters';
-import { bulletsFromNote, withFallback } from '../data/notas';
+import { withFallback } from '../data/notas';
 import { activeVices, Vice, VICES } from '../data/vices';
-import { boredomLine, fightLine, nailsLine, twistersLine } from '../log';
+import { boredomLine, fightLine, nailsLine } from '../log';
 
 const FISTS_SECONDS = 60;
-const TWISTER_SWITCH_SECONDS = 20;
-const TWISTERS_MINUTES = 5;
 const BOREDOM_MINUTES = 5;
 
 const fmt = (s: number): string => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
@@ -117,7 +114,6 @@ export class NotTodayModal extends Modal {
 				open: () => (vice.kind === 'fists' ? this.fists(vice) : this.fight(vice)),
 			})),
 			{ icon: 'battery-low', title: 'Boredom', sub: 'Roll something concrete to do right now', open: () => void this.boredom() },
-			{ icon: 'mic', title: 'Tongue twisters', sub: `${TWISTERS_MINUTES} minutes of slow, loud speech practice`, open: () => void this.twisters() },
 			{ icon: 'list-plus', title: 'Change my vices', sub: 'Add or remove what you are fighting', open: () => this.checklist(true) },
 		];
 		const list = body.createDiv({ cls: 'not-today-list' });
@@ -258,38 +254,5 @@ export class NotTodayModal extends Modal {
 			this.buttons(screen, [['Roll another', () => void this.boredom(activity.title)], ['I am done', finishBoredom, true]]);
 		};
 		this.buttons(body, [['Roll another', () => void this.boredom(activity.title)], ['Start', start, true]]);
-	}
-
-	private async twisters(): Promise<void> {
-		const body = this.openScreen('Tongue twisters');
-		const notePath = this.plugin.settings.twistersNote.trim();
-		const fromNote = notePath ? bulletsFromNote((await this.plugin.readNote(notePath)) ?? '') : [];
-		const deck = shuffleDeck(withFallback(fromNote, TWISTERS));
-		let count = 0;
-		const finishTwisters = (): void => void this.finish(
-			twistersLine(new Date(), this.elapsedSeconds() || TWISTERS_MINUTES * 60, count),
-			'mic', 'Practice done', 'Listen to the recording and notice what improved.', "Written to today's daily note.",
-		);
-		this.runTimer(body, TWISTERS_MINUTES * 60, finishTwisters);
-		const card = body.createDiv({ cls: 'not-today-card' });
-		const tag = card.createDiv({ cls: 'not-today-tag' });
-		const title = card.createDiv({ cls: 'not-today-card-title not-today-phrase' });
-		let sinceSwitch = 0;
-		const next = (): void => {
-			title.setText(deck[count % deck.length]!);
-			count += 1;
-			tag.setText(`Twister ${count}`);
-			sinceSwitch = 0;
-		};
-		next();
-		const switcher = window.setInterval(() => { sinceSwitch += 1; if (sinceSwitch >= TWISTER_SWITCH_SECONDS) next(); }, 1000);
-		this.extraTimers.push(switcher);
-		const steps = body.createEl('ol', { cls: 'not-today-steps' });
-		for (const step of [
-			'Warm up: breathe deep and vibrate your lips and tongue.',
-			`Read slowly, exaggerating the mouth. The sentence switches by itself every ${TWISTER_SWITCH_SECONDS} seconds.`,
-			'Record yourself and listen. The ear catches what the mouth hides.',
-		]) steps.createEl('li', { text: step });
-		this.buttons(body, [['Next', next], ['I am done', finishTwisters, true]]);
 	}
 }

@@ -22,7 +22,6 @@ cp "$REPO/main.js" "$REPO/manifest.json" "$REPO/styles.css" "$DEMO/.obsidian/plu
 {
 	"dailyFolder": "Daily Notes",
 	"section": "## Not Today",
-	"twistersNote": "",
 	"activitiesNote": "",
 	"encouragementNote": "Encouragement.md",
 	"fundingUrl": "",
@@ -59,8 +58,7 @@ echo "  1. clique no ícone de escudo na barra lateral para abrir o menu de pân
 echo "     (se quiser o atalho, ligue um hotkey ao comando 'Open the panic button' antes de gravar)"
 echo "  2. clique em Social media e espere o cronômetro de 1 minuto terminar (a onda passa)"
 echo "  3. Back, Boredom, Start, espere ~15s, I am done (mostra o tempo real no log)"
-echo "  4. Back, Tongue twisters, Next duas vezes, I am done"
-echo "  5. feche o modal e abra a daily (Daily Notes) para mostrar as linhas em ## Domínio"
+echo "  4. feche o modal e abra a daily (Daily Notes) para mostrar as linhas em ## Domínio"
 ffmpeg -y -f x11grab -framerate 30 -video_size "${WIDTH}x${HEIGHT}" -i ":0.0+${X},${Y}" \
 	-c:v libx264 -preset veryfast -crf 22 -pix_fmt yuv420p "$OUT/demo-raw.mp4" || true
 [ -s "$OUT/demo-raw.mp4" ] || { echo "Gravação vazia."; exit 1; }
