@@ -4,7 +4,7 @@ A panic button for the moment an urge hits. Tap the shield icon, pick your fight
 
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-Donate-yellow)](https://www.buymeacoffee.com/alanveras)
 
-<!-- Demo GIF: run demo/gravar-demo.sh and add assets here -->
+![Not Today demo: pick a fight, surf the wave, and log it honestly](demo/demo.gif)
 
 ## How it works
 
